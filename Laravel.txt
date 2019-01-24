@@ -1,6 +1,149 @@
-1). What is Laravel
+=> What is Laravel
 ->  Laravel is free open source “PHP framework” based on MVC Design Pattern.
 It is created by Taylor Otwell. Laravel provides expressive and elegant syntax that helps in creating a wonderful web application easily and quickly.
 
-2). List some official packages provided by Laravel
+=> List some official packages provided by Laravel
 ->  1)Cashier 2)Envoy 3)Passport 4)Scout 5)Socialite 
+
+=> List out some latest features of Laravel Framework
+->	-Inbuilt CRSF (cross-site request forgery ) Protection.
+	-Inbuilt paginations
+	-Reverse Routing
+	-Query builder
+	-Route caching
+	-Database Migration
+	-IOC (Inverse of Control) Container Or service container.
+
+=> What is composer ?
+-> 			Composer is PHP dependency manager used for installing dependencies of PHP applications.
+	It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
+
+	It provides us a nice way to reuse any kind of code. Rather than all of us reinventing the wheel over and over, we can instead download popular packages.
+
+=>  How to install Laravel via composer ?
+->   composer create-project --prefer-dist laravel/laravel projct name version
+
+=>  List some Aggregates methods provided by query builder in Laravel ?
+-> 	count()
+	Usage:$products = DB::table(‘products’)->count();
+
+	max()
+	Usage:$price = DB::table(‘orders’)->max(‘price’);
+
+	min()
+	Usage:$price = DB::table(‘orders’)->min(‘price’);
+
+	avg()
+	Usage:$price = DB::table(‘orders’)->avg(‘price’);
+
+	sum()
+	Usage: $price = DB::table(‘orders’)->sum(‘price’);
+
+=>  What are Laravel Facades ?
+-> 		Laravel Facades provides a static like interface to classes that are available in the 			application’s service container.
+
+	Laravel self ships with many facades which provide access to almost all features of Laravel’s.
+	Laravel Facades serve as “static proxies” to underlying classes in the service container and provides benefits of a terse, expressive syntax while maintaining more testability and flexibility than traditional static methods of classes. All of Laravel’s facades are defined in the IlluminateSupportFacades namespace. You can easily access a Facade like so:
+
+	use IlluminateSupportFacadesCache;
+	Route::get('/cache', function () {
+	return Cache::get('key');
+	}); 
+
+=>  How to use custom table in Laravel Model ?
+-> 
+		class User extends Eloquent{
+		protected $table="my_custom_table";
+
+		}  
+
+=>  How can you define Fillable Attribute in a Laravel Model ?
+->  
+	Class User extends Eloquent{
+	 protected $fillable =array('id','first_name','last_name','age');
+	}
+
+=>  What are Laravel Contracts ?
+-> 	Laravel’s Contracts are nothing but set of interfaces that define the core services provided by 
+	the Laravel framework.
+
+=> What does PHP compact function do ?
+-> 
+	compact() laravel
+	PHP compact function takes each key and tries to find a variable with that same name.If the variable is found, them it builds an associative array.
+
+=> Define ORM ?
+-> 	Object-relational Mapping (ORM) is a programming technique for converting data between 
+	incompatible type systems in object-oriented programming languages.
+
+=> How to create a record in Laravel using eloquent ?
+-> 
+	$product = new product;
+	$product->name = $request->name;
+	$product->description = $request->name;
+	$product->save(); 
+
+=> How to get Logged in user info in Laravel ?
+-> 	if(Auth::check()){
+	  $loggedIn_user=Auth::User();
+	  dd($loggedIn_user);
+	}  
+
+=> What are named routes in Laravel ?
+-> Route::get('user/profile', 'UserController@showProfile')->name('profile');
+
+=> What are traits in Laravel ?
+-> 		Laravel Traits are simply a group of methods that you want include within another class. A 
+	Trait, like an abstract classes cannot be instantiated by itself.Trait are created to reduce the limitations of single inheritance in PHP by enabling a developer to reuse sets of methods freely in several independent classes living in different class hierarchies.
+	Here is an example of trait.
+
+	trait Sharable {
+	  public function share($item)
+	  {
+	    return 'share this item';
+	  } 
+	}
+
+	You could then include this Trait within other classes like this:
+	class Post {
+	  use Sharable;
+	}
+	 
+	class Comment {
+	  use Sharable;
+	}
+	Now if you were to create new objects out of these classes you would find that they both have the share() method available:
+	$post = new Post;
+	echo $post->share(''); // 'share this item' 
+	 
+	$comment = new Comment;
+	echo $comment->share(''); // 'share this item'
+
+=> Explain Laravel Eloquent
+-> 
+	Laravel’s Eloquent ORM is one the most popular PHP ORM (OBJECT RELATIONSHIP MAPPING).
+	It provides a beautiful, simple ActiveRecord implementation to work with your database.
+	In Eloquent each database table has the corresponding MODEL that is used to interact with table and perform a database related operation on the table.
+	Sample Model Class in Laravel.
+	Like ..
+	namespace App;
+	use Illuminate\Database\Eloquent\Model;
+	class Users extends Model
+	{
+	   
+	}
+
+=>  List Types of relationships supported by Laravel ?
+-> 
+	Laravel support 7 types of table relationships, they are
+
+	One To One
+	One To Many
+	One To Many (Inverse)
+	Many To Many
+	Has Many Through
+	Polymorphic Relations
+	Many To Many Polymorphic Relations
+
+=> How can you display HTML with Blade in laravel
+-> {!! $your_var !!}
