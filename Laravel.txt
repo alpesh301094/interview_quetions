@@ -1,0 +1,6 @@
+1). What is Laravel
+->  Laravel is free open source “PHP framework” based on MVC Design Pattern.
+It is created by Taylor Otwell. Laravel provides expressive and elegant syntax that helps in creating a wonderful web application easily and quickly.
+
+2). List some official packages provided by Laravel
+->  1)Cashier 2)Envoy 3)Passport 4)Scout 5)Socialite 
