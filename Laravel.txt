@@ -147,3 +147,20 @@ It is created by Taylor Otwell. Laravel provides expressive and elegant syntax t
 
 => How can you display HTML with Blade in laravel
 -> {!! $your_var !!}
+
+=> What is middleware
+-> 
+	Middleware provide a convenient mechanism for filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further into the application.
+
+	Step-1 -> php artisan make:middleware AgeMiddleware
+	Step-2 -> 
+				namespace App\Http\Middleware;
+				use Closure;
+
+				class AgeMiddleware {
+				   public function handle($request, Closure $next) {
+				      return $next($request);
+				   }
+				}
+	Step-3 -> Registering Middleware
+				app\Http\Kernel.php			
